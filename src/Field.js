@@ -200,8 +200,8 @@ export default class Field extends Base {
   }
 
   @computed get isValid() {
-    return !this.checkValidationErrors
-      && this.check('isValid', true);
+    return (!this.checkValidationErrors
+      && this.check('isValid', true)) || this.$disabled;
   }
 
   @computed get isDirty() {
